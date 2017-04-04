@@ -9,9 +9,10 @@
 AGameManager::AGameManager()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
 }
+
 
 // Called when the game starts or when spawned
 void AGameManager::BeginPlay()
@@ -20,15 +21,15 @@ void AGameManager::BeginPlay()
 	
 }
 
-// Called every frame
-void AGameManager::Tick( float DeltaTime )
+
+void AGameManager::WhoWins(AElement* PlayerElement, AElement* AIElement)
 {
-	Super::Tick( DeltaTime );
 
 }
 
+
 //Generate a random number [0,2]
-int AGameManager::GenerateElement()
+int32 AGameManager::GenerateElementIndex()
 {
 	return FMath::Rand() % 3;
 }

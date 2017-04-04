@@ -19,14 +19,21 @@ public:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	
-	// Called every frame
-	virtual void Tick( float DeltaSeconds ) override;
+	//UFUNCTION(BlueprintCallable, Category = "Custom")
+	//void SpawnElement(FVector Location, FRotator Rotation = FRotator(0, 0, 0));
 
 	UFUNCTION(BlueprintCallable, Category = "Custom")
-	int GenerateElement();
-	
+	int32 GenerateElementIndex();
+
+	UFUNCTION(BlueprintCallable, Category = "Custom")
+	void WhoWins(AElement* PlayerElement, AElement* AIElement);
+
 private:
-	TArray<AElement*> Elements[2];
+	TSubclassOf<class AElement> ElementBlueprint;
+
+	TArray<AElement*> ElementsInArena[2];
 	
 	int RandomNumber;
+
+	
 };
